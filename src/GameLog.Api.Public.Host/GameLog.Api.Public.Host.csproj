@@ -23,7 +23,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\GameLog.Infrastructure\GameLog.Infrastructure.csproj" />
+      <ProjectReference Include="..\GameLog.Infrastructure\GameLog.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>
