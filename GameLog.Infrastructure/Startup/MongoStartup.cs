@@ -1,3 +1,4 @@
+using GameLog.Infrastructure.Contracts;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Driver;
@@ -28,8 +29,10 @@ public static class MongoStartup
         RegisterCollections(services);
     }
 
-    public static void RegisterCollections(this IServiceCollection services)
+    private static void RegisterCollections(this IServiceCollection services)
     {
-        
+        services
+            .AddSingleton<IMongoCollection<GameLogEntity>>(sp =>
+                sp.GetRequiredService<IMongoDatabase>().GetCollection<GameLogEntity>("gameLogs"));
     }
 }
